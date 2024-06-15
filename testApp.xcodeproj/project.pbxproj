@@ -10,6 +10,7 @@
 		271464982C1BB4E100B4BD93 /* landmarkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 271464972C1BB4E100B4BD93 /* landmarkData.json */; };
 		2714649A2C1BB81D00B4BD93 /* LandmarkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271464992C1BB81D00B4BD93 /* LandmarkList.swift */; };
 		271464A02C1C17D300B4BD93 /* LandmarkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2714649F2C1C17D300B4BD93 /* LandmarkDetail.swift */; };
+		2784E3F52C1DB0F50079A7F7 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2784E3F42C1DB0F50079A7F7 /* FavoriteButton.swift */; };
 		27C462322C1BAC0700582CC7 /* LandmarkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C462312C1BAC0700582CC7 /* LandmarkRow.swift */; };
 		27EC288D2C1B0DEB00528D9B /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC288C2C1B0DEB00528D9B /* CircleImage.swift */; };
 		27EC288F2C1B520600528D9B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC288E2C1B520600528D9B /* MapView.swift */; };
@@ -43,6 +44,7 @@
 		271464972C1BB4E100B4BD93 /* landmarkData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = landmarkData.json; sourceTree = "<group>"; };
 		271464992C1BB81D00B4BD93 /* LandmarkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkList.swift; sourceTree = "<group>"; };
 		2714649F2C1C17D300B4BD93 /* LandmarkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkDetail.swift; sourceTree = "<group>"; };
+		2784E3F42C1DB0F50079A7F7 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		27C462312C1BAC0700582CC7 /* LandmarkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkRow.swift; sourceTree = "<group>"; };
 		27EC288C2C1B0DEB00528D9B /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		27EC288E2C1B520600528D9B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -111,13 +113,30 @@
 			isa = PBXGroup;
 			children = (
 				27FC47BA2C1A2E6400D62FE1 /* ContentView.swift */,
+				2784E3F62C1DB23E0079A7F7 /* Landmark */,
+				2784E3F82C1DB25F0079A7F7 /* Helper */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2784E3F62C1DB23E0079A7F7 /* Landmark */ = {
+			isa = PBXGroup;
+			children = (
 				27C462312C1BAC0700582CC7 /* LandmarkRow.swift */,
 				271464992C1BB81D00B4BD93 /* LandmarkList.swift */,
 				2714649F2C1C17D300B4BD93 /* LandmarkDetail.swift */,
+			);
+			path = Landmark;
+			sourceTree = "<group>";
+		};
+		2784E3F82C1DB25F0079A7F7 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
 				27EC288C2C1B0DEB00528D9B /* CircleImage.swift */,
+				2784E3F42C1DB0F50079A7F7 /* FavoriteButton.swift */,
 				27EC288E2C1B520600528D9B /* MapView.swift */,
 			);
-			path = Views;
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		27FC47AC2C1A2E6400D62FE1 = {
@@ -143,10 +162,10 @@
 		27FC47B72C1A2E6400D62FE1 /* testApp */ = {
 			isa = PBXGroup;
 			children = (
+				27FC47B82C1A2E6400D62FE1 /* testAppApp.swift */,
 				271464952C1BB49C00B4BD93 /* Models */,
 				271464942C1BB48800B4BD93 /* Views */,
 				271464932C1BB46C00B4BD93 /* Resources */,
-				27FC47B82C1A2E6400D62FE1 /* testAppApp.swift */,
 				27FC47BE2C1A2E6500D62FE1 /* Assets.xcassets */,
 				27FC47C02C1A2E6500D62FE1 /* testApp.entitlements */,
 				27FC47C12C1A2E6500D62FE1 /* Preview Content */,
@@ -311,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27FC47BB2C1A2E6400D62FE1 /* ContentView.swift in Sources */,
+				2784E3F52C1DB0F50079A7F7 /* FavoriteButton.swift in Sources */,
 				27EC288D2C1B0DEB00528D9B /* CircleImage.swift in Sources */,
 				27EC288F2C1B520600528D9B /* MapView.swift in Sources */,
 				2714649A2C1BB81D00B4BD93 /* LandmarkList.swift in Sources */,
@@ -481,6 +501,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Site seeing";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -521,6 +542,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Site seeing";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

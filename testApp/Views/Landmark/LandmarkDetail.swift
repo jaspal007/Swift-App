@@ -8,38 +8,57 @@
 import SwiftUI
 
 struct LandmarkDetail: View {
+    @Environment(ModelData.self) var modelData
     var landmark: Landmark
+    var landmarkIndex: Int{
+        modelData.landmarks.firstIndex(where: {$0.id == landmark.id})!
+    }
     var body: some View {
-        ScrollView {
-            VStack{
-                MapView(coordinates: landmark.locationCoordinates).frame(height: 300)
-                CircleImage(image: landmark.image).frame(height: 200).offset(y: -100).padding(.bottom, -100)
-                VStack{
-                    let text = Text(landmark.name)
-                    text.font(.largeTitle).fontWeight(.heavy).fontDesign(.serif).foregroundStyle(.mint)
-                    HStack (alignment: .top) {
-                        Text(landmark.park).font(.subheadline).fontDesign(.rounded)
-                            .fontWeight(.bold)
-                        Text(landmark.state).fontDesign(.rounded)
+            @Bindable var modelData = modelData
+
+
+            ScrollView {
+                MapView(coordinates: landmark.locationCoordinates)
+                    .frame(height: 300)
+
+
+                CircleImage(image: landmark.image)
+                    .offset(y: -130)
+                    .padding(.bottom, -130)
+
+
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(landmark.name)
+                            .font(.title)
+                        FavoriteButton(isSet: $modelData.landmarks[landmarkIndex].isFavorite)
+                    }
+
+
+                    HStack {
+                        Text(landmark.park)
+                        Spacer()
+                        Text(landmark.state)
                     }
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
+
+
+                    Divider()
+
+
+                    Text("About \(landmark.name)")
+                        .font(.title2)
+                    Text(landmark.description)
                 }
                 .padding()
             }
-            Divider()
-            VStack (alignment: .leading) {
-                Text("Description").font(.title2).fontWeight(.black).multilineTextAlignment(.leading)
-                Text(landmark.description).multilineTextAlignment(.leading)
-            }
-            .padding([.leading])
+            .navigationTitle(landmark.name)
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .navigationTitle(landmark.name)
-        .navigationBarTitleDisplayMode(.inline)
     }
-}
 
 #Preview {
-    @Previewable @Environment(ModelData.self) var modelData
-    LandmarkDetail(landmark: modelData.landmarks[0])
+    let modelData = ModelData()
+    return LandmarkDetail(landmark: modelData.landmarks[0]).environment(modelData)
 }

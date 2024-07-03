@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct LandmarkRow: View {
+    @Environment(ModelData.self) var modelData
+    
     var landmark: Landmark
+//    var landmarkIndex: Int {
+//            modelData.landmarks.firstIndex(where: { $0.id == landmark.id })!
+//        }
     
     var body: some View {
+        @Bindable var modelData = modelData
         HStack {
             landmark.image.resizable().frame(width: 50, height: 50)
             Text(landmark.name)
@@ -18,20 +24,12 @@ struct LandmarkRow: View {
             if landmark.isFavorite{
                 Image(systemName: "star.fill").foregroundColor(.yellow)
             }
-            FavoriteButton(isSet: (landmark.isFavorite))
+//            FavoriteButton(isSet: ($modelData.landmarks[landmarkIndex].isFavorite))
         }
         .padding()
     }
 }
 
-#Preview("Turtle Rock") {
-    
-    Group {
-        LandmarkRow(landmark: ModelData().landmarks[0])
-        LandmarkRow(landmark: ModelData().landmarks[1])
-    }
-}
-
-#Preview("Salmon") {
-    
+#Preview{
+    LandmarkRow(landmark: ModelData().landmarks[0])
 }
